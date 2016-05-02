@@ -1,0 +1,443 @@
+#%RAML 0.8
+title: template.angularjs
+baseUri: /api/rest/agenda
+schemas:
+  - contato-xml: !include schemas/contato-xml-schema.xsd
+  - contato: !include schemas/contato-schema.json
+  - telefone-xml: !include schemas/telefone-xml-schema.xsd
+  - telefone: !include schemas/telefone-schema.json
+  - grupo-xml: !include schemas/grupo-xml-schema.xsd
+  - grupo: !include schemas/grupo-schema.json
+/Contato: 
+  description: |
+    Publicando metodos de negocio via REST
+     @generated
+  put: 
+    body: 
+      application/json: 
+        schema: contato
+        example: !include examples/contato-example.json
+      application/xml: 
+        schema: contato-xml
+        example: !include examples/contato-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  post: 
+    body: 
+      application/json: 
+        schema: contato
+        example: !include examples/contato-example.json
+      application/xml: 
+        schema: contato-xml
+        example: !include examples/contato-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  get: 
+    description: NamedQuery list
+    queryParameters: 
+      limit: 
+        type: integer
+        default: 100
+      offset: 
+        type: integer
+        default: 0
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  /{instanceId}/Telefone: 
+    get: 
+      description: OneToMany Relationship GET
+      queryParameters: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    post: 
+      description: OneToMany Relationship POST
+      body: 
+        application/json: 
+          schema: telefone
+          example: !include examples/telefone-example.json
+        application/xml: 
+          schema: telefone-xml
+          example: !include examples/telefone-example.xml
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{relationId}: 
+      delete: 
+        description: OneToMany Relationship DELETE
+        body: 
+          application/json: 
+          application/xml: 
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+      put: 
+        description: OneToMany Relationship PUT
+        body: 
+          application/json: 
+            schema: telefone
+            example: !include examples/telefone-example.json
+          application/xml: 
+            schema: telefone-xml
+            example: !include examples/telefone-example.xml
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /listByNome: 
+    get: 
+      description: NamedQuery listByNome
+      queryParameters: 
+        nome: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{nome}: 
+      get: 
+        description: NamedQuery listByNome
+        queryParameters: 
+          limit: 
+            type: integer
+            default: 100
+          offset: 
+            type: integer
+            default: 0
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /{id}: 
+    delete: 
+      body: 
+        application/json: 
+        application/xml: 
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    put: 
+      body: 
+        application/json: 
+          schema: contato
+          example: !include examples/contato-example.json
+        application/xml: 
+          schema: contato-xml
+          example: !include examples/contato-example.xml
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+/Grupo: 
+  description: |
+    Publicando metodos de negocio via REST
+     @generated
+  put: 
+    body: 
+      application/json: 
+        schema: grupo
+        example: !include examples/grupo-example.json
+      application/xml: 
+        schema: grupo-xml
+        example: !include examples/grupo-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  post: 
+    body: 
+      application/json: 
+        schema: grupo
+        example: !include examples/grupo-example.json
+      application/xml: 
+        schema: grupo-xml
+        example: !include examples/grupo-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  get: 
+    description: NamedQuery list
+    queryParameters: 
+      limit: 
+        type: integer
+        default: 100
+      offset: 
+        type: integer
+        default: 0
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  /{instanceId}/Contato: 
+    get: 
+      description: OneToMany Relationship GET
+      queryParameters: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    post: 
+      description: OneToMany Relationship POST
+      body: 
+        application/json: 
+          schema: contato
+          example: !include examples/contato-example.json
+        application/xml: 
+          schema: contato-xml
+          example: !include examples/contato-example.xml
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{relationId}: 
+      delete: 
+        description: OneToMany Relationship DELETE
+        body: 
+          application/json: 
+          application/xml: 
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+      put: 
+        description: OneToMany Relationship PUT
+        body: 
+          application/json: 
+            schema: contato
+            example: !include examples/contato-example.json
+          application/xml: 
+            schema: contato-xml
+            example: !include examples/contato-example.xml
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /listByNome: 
+    get: 
+      description: NamedQuery listByNome
+      queryParameters: 
+        nome: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{nome}: 
+      get: 
+        description: NamedQuery listByNome
+        queryParameters: 
+          limit: 
+            type: integer
+            default: 100
+          offset: 
+            type: integer
+            default: 0
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /{id}: 
+    delete: 
+      body: 
+        application/json: 
+        application/xml: 
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    put: 
+      body: 
+        application/json: 
+          schema: grupo
+          example: !include examples/grupo-example.json
+        application/xml: 
+          schema: grupo-xml
+          example: !include examples/grupo-example.xml
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+/Telefone: 
+  description: |
+    Publicando metodos de negocio via REST
+     @generated
+  put: 
+    body: 
+      application/json: 
+        schema: telefone
+        example: !include examples/telefone-example.json
+      application/xml: 
+        schema: telefone-xml
+        example: !include examples/telefone-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  post: 
+    body: 
+      application/json: 
+        schema: telefone
+        example: !include examples/telefone-example.json
+      application/xml: 
+        schema: telefone-xml
+        example: !include examples/telefone-example.xml
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  get: 
+    description: NamedQuery list
+    queryParameters: 
+      limit: 
+        type: integer
+        default: 100
+      offset: 
+        type: integer
+        default: 0
+    responses: 
+      200: 
+        body: 
+          application/xml: 
+          application/json: 
+  /listByContato: 
+    get: 
+      description: NamedQuery listByContato
+      queryParameters: 
+        contato: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{contato}: 
+      get: 
+        description: NamedQuery listByContato
+        queryParameters: 
+          limit: 
+            type: integer
+            default: 100
+          offset: 
+            type: integer
+            default: 0
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /listByNumero: 
+    get: 
+      description: NamedQuery listByNumero
+      queryParameters: 
+        numero: 
+        limit: 
+          type: integer
+          default: 100
+        offset: 
+          type: integer
+          default: 0
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    /{numero}: 
+      get: 
+        description: NamedQuery listByNumero
+        queryParameters: 
+          limit: 
+            type: integer
+            default: 100
+          offset: 
+            type: integer
+            default: 0
+        responses: 
+          200: 
+            body: 
+              application/xml: 
+              application/json: 
+  /{id}: 
+    delete: 
+      body: 
+        application/json: 
+        application/xml: 
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 
+    put: 
+      body: 
+        application/json: 
+          schema: telefone
+          example: !include examples/telefone-example.json
+        application/xml: 
+          schema: telefone-xml
+          example: !include examples/telefone-example.xml
+      responses: 
+        200: 
+          body: 
+            application/xml: 
+            application/json: 

@@ -1,0 +1,47 @@
+{
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "required" : true ,
+  "properties" : {
+    "Contato" : {
+      "required" : false ,
+      "type" : "object" ,
+      "properties" : {
+        "Grupo" : {
+          "required" : false ,
+          "type" : "object" ,
+          "properties" : {
+            "Id" : {
+              "required" : false ,
+              "type" : "string"
+            } ,
+            "Nome" : {
+              "required" : false ,
+              "type" : "string"
+            }
+          }
+        } ,
+        "Email" : {
+          "required" : false ,
+          "type" : "string"
+        } ,
+        "Id" : {
+          "required" : false ,
+          "type" : "string"
+        } ,
+        "Nome" : {
+          "required" : false ,
+          "type" : "string"
+        }
+      }
+    } ,
+    "Id" : {
+      "required" : false ,
+      "type" : "string"
+    } ,
+    "Numero" : {
+      "required" : false ,
+      "type" : "string"
+    }
+  }
+}
